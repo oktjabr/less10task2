@@ -19,11 +19,11 @@ namespace less10task2
     {
         public static T[] GetArray<T>(this MyList<T> list)
         {
-            
+
             T[] newList = new T[list.quantity];
             for (int i = 0; i < list.quantity; i++)
             {
-                newList[i] =list[i] ;
+                newList[i] = (T)list[i];
             }
             return newList;
         }
@@ -35,15 +35,23 @@ namespace less10task2
         { get; }
     }
 
-    class MyList<T>:IMyList<T>
+    class MyList<T> : IMyList<T>
     {
         private T[] newList = new T[5];
 
-        
-        int count ;
-        public T this[int index]
+
+        int count;
+        public object this[int index]
         {
-            get { return newList[index] ; }
+            get
+            {
+                if (index >= 5)
+                    return newList[index];
+                else
+                {
+                    return "выход за предел массива";
+                };
+            }
         }
 
         public void Add(T numb)
@@ -53,7 +61,7 @@ namespace less10task2
         }
         public int quantity
         {
-            get { return count ; }
+            get { return count; }
         }
     }
 
@@ -70,12 +78,12 @@ namespace less10task2
             instance.Add("www");
             instance.Add("ffff");
             instance.Add("df");
-            
-          //  Console.WriteLine(instance[2]);
+
+            //  Console.WriteLine(instance[2]);
             Console.WriteLine(instance.quantity);
 
-           string []array =  instance.GetArray<string>();
-            for (int i = 0; i <array.Length; i++)
+            string[] array = instance.GetArray<string>();
+            for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine(array[i]);
             }
