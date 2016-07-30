@@ -20,8 +20,8 @@ namespace less10task2
         public static T[] GetArray<T>(this MyList<T> list)
         {
             
-            T[] newList = new T[list.Kolichestvo];
-            for (int i = 0; i < list.Kolichestvo; i++)
+            T[] newList = new T[list.quantity];
+            for (int i = 0; i < list.quantity; i++)
             {
                 newList[i] =list[i] ;
             }
@@ -31,7 +31,7 @@ namespace less10task2
     interface IMyList<T>
     {
         void Add(T numb);
-        int Kolichestvo
+        int quantity
         { get; }
     }
 
@@ -51,7 +51,7 @@ namespace less10task2
             newList[count] = numb;
             count++;
         }
-        public int Kolichestvo
+        public int quantity
         {
             get { return count ; }
         }
@@ -67,8 +67,9 @@ namespace less10task2
             instance.Add("rt");
             instance.Add("fe");
             instance.Add("asd");
+            
           //  Console.WriteLine(instance[2]);
-            Console.WriteLine(instance.Kolichestvo);
+            Console.WriteLine(instance.quantity);
 
            string []array =  instance.GetArray<string>();
             for (int i = 0; i <array.Length; i++)
