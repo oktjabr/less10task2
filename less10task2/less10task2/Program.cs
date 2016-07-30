@@ -67,6 +67,9 @@ namespace less10task2
             instance.Add("rt");
             instance.Add("fe");
             instance.Add("asd");
+            instance.Add("www");
+            instance.Add("ffff");
+            instance.Add("df");
             
           //  Console.WriteLine(instance[2]);
             Console.WriteLine(instance.quantity);
